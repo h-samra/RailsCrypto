@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'home/about'
+  get 'home/lookup'
+  post '/home/lookup' => 'home/lookup'
   root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
