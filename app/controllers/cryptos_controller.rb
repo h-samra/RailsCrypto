@@ -1,15 +1,39 @@
 class CryptosController < ApplicationController
   before_action :set_crypto, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
 
   # GET /cryptos
   # GET /cryptos.json
+  
   def index
     @cryptos = Crypto.all
+    require 'net/http'
+    require 'json'
+
+    @url = 'https://api.coinmarketcap.com/v1/ticker/'
+    @uri = URI(@url)
+    #JSON formatting 
+    @response = Net::HTTP.get(@uri)
+    #ruby hash formatting
+    @lookup_crypto = JSON.parse(@response)
+    
+    
   end
 
   # GET /cryptos/1
   # GET /cryptos/1.json
   def show
+    @cryptos = Crypto.all
+    require 'net/http'
+    require 'json'
+
+    @url = 'https://api.coinmarketcap.com/v1/ticker/'
+    @uri = URI(@url)
+    #JSON formatting 
+    @response = Net::HTTP.get(@uri)
+    #ruby hash formatting
+    @show_crypto = JSON.parse(@response)
   end
 
   # GET /cryptos/new
@@ -71,4 +95,10 @@ class CryptosController < ApplicationController
     def crypto_params
       params.require(:crypto).permit(:symbol, :user_id, :cost_per, :amount_owned)
     end
+    
+    def correct_user
+      @correct = current_user.cryptos.find_by(id: params[:id])
+      redirect_to cryptos_path, notice: "Not Authorized to edit this entry" if @correct.nil?
+    end
+    
 end

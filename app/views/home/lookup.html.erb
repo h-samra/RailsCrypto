@@ -1,22 +1,46 @@
-<h3>Crypto Currency Lookup</h3>
-<br/>
+<br>
+<br>
 
-<%= form_tag home_lookup_path, :method => 'POST' do %>
-    <%= text_field_tag 'sym', nil, placeholder: 'Enter Crypto Symbol', size: 50 %>
-    <%= submit_tag 'Lookup Stock Quote' %>
-<% end %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">
+      Crypto Currency Lookup
+      </h2>
+  </div>
+  <div class="panel-body">
+    
 
-<br/><br/>
 
-<% if @symbol == "" %>
-      <%= "Please enter a currency" %>
-<% end %>
 
-<% if @symbol %>
+    <%= form_tag home_lookup_path, :method => 'POST' do %>
+        <%= text_field_tag 'sym', nil, placeholder: 'Enter Crypto Symbol', size: 50, class: "form-control" %>
+        <br>
+    
+        <%= submit_tag 'Lookup Stock Quote', class: "btn btn-default" %>
+    <% end %>
+    
+    <% if @symbol == "" %>
+         <%= "Please enter a currency" %>
+    <% end %>
+
+    
+    
+  </div>
+  
+  <div class="panel-footer">
+    <% if @symbol %>
     <% for x in @lookup_coin %>
         <% if @symbol == x['symbol'] %>
-            <%= x["name"]%>: $<%= x["price_usd"] %> 
+            <strong>Currency Name: </strong> 
+            <%= x["name"]%>
+            <br>
+            <strong>Current Price: </strong>
+            <%= number_to_currency(x["price_usd"]) %>
+            <br>
+            <strong>Current Rank: </strong>
+            <%= x["rank"] %>
         <% end %>
     <% end %>
 <% end %>
-    
+  
+</div>
