@@ -1,24 +1,6 @@
+This Ruby on Rails website utilizes the CoinMarketCap API to fetch and parse up to date data. The application was written and ran on the Cloud 9 IDE. 
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+Using a devise database, I was able to build a user management system, so users can customize their private portfolio and track their crypto as it progresses. I used Ruby on Rails scaffolding to build individual crypto currency records. Using user IDs as a primary key, I associated the two database entities for easy usage.
+Additionally, CSS with Bootstrap was used on tables, forms, panels, and buttons to gave the UI a clean minimalistic look.
 
 
-Welcome to your Rails project on Cloud9 IDE!
-
-To get started, just do the following:
-
-1. Run the project with the "Run Project" button in the menu bar on top of the IDE.
-2. Preview your new app by clicking on the URL that appears in the Run panel below (https://HOSTNAME/).
-
-Happy coding!
-The Cloud9 IDE team
-
-
-## Support & Documentation
-
-Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
-To watch some training videos, visit http://www.youtube.com/user/c9ide
