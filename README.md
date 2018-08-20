@@ -4,3 +4,4 @@ Using a devise database, I was able to build a user management system, so users 
 Additionally, CSS with Bootstrap was used on tables, forms, panels, and buttons to gave the UI a clean minimalistic look.
 
 
+![HomePage](https://user-images.githubusercontent.com/22884640/44341552-18c00d80-a43d-11e8-83dc-f92034972f7d.png)
